@@ -1,6 +1,4 @@
-# ![Computer Science - Hash Tables - tktk Microlesson Name](./assets/hero.png)
-
-**Learning objective:** By the end of this lesson, students will be able to tktk.
+# ![Computer Science - Hash Tables - Hash Tables Deep Dive](./assets/hero.png)
 
 We miss our friends in Memoryville already, but it’s time to return to the real world. In this lesson, we’ll review hash tables, hash functions, and common uses of the data structure. We’ll even do some coding!
 
@@ -14,7 +12,9 @@ A **hash function** is the algorithm that scrambles keys in order to produce ind
 - It should distribute values evenly throughout the hash table.
 - It should avoid collisions.
 
-tktk Hunter - Can you diagram a hash function here? Have a set of keys that map to a set of indices in a hash table.
+<br>
+
+![Key Indices Diagram](./assets/11-Keys-Indices-Diagram.png)
 
 ## But What About Hash Tables?
 
@@ -22,18 +22,9 @@ This lesson is called “Hash Tables Deep Dive,” so we should probably talk ab
 
 A **hash table** is a list-like data structure that’s designed to quickly store and retrieve key data records. To store keys in a hash table, they must be mapped (with a hash function) to the set of possible indices in the table or to addresses of a memory location. In Memoryville, these were the housing developments to which we assigned residents. If we were creating a hash table with people’s names, it would look like this:
 
-| Index | Name |
-| --- | --- |
-| 0 | Alice |
-| 1 | Elizabeth |
-| 2 | Lorraine |
-| 3 |     |
-| 4 | Kate |
-| 5 | Kris |
-| 6 | Isabel |
-| 7 |     |
-| 8 | Alexandra |
-| 9 | Dani |
+<br>
+
+![Table](./assets/4-9-table.png)
 
 ## Where It Starts to Get Sticky
 
@@ -52,11 +43,9 @@ The basic concept of open addressing: If the index generated for a key is alread
 
 But why would we use open addressing?
 
-| Pros | Cons |
-| --- | --- |
-| If you're aware of limits on the type and number of keys, you can optimize the table at the start. | More complex computations. |
-| Table can be completely filled up and space can be used more efficiently. | Table can be completely filled up, preventing values from being added. |
-| Does not require additional data structures. | Address where a key end up being inserted deos not secessarily correspond to (and cannot necessarily be predicted by) its hash value. |
+<br>
+
+![Pros and Cons Table](./assets/7-pros-cons-table.png)
 
 ## Solving Collisions With Probing
 
@@ -65,6 +54,10 @@ But why would we use open addressing?
 If the slot at the hashed index is occupied, look one slot to the right. Keep doing this until an open slot is found.
 
 If the hash function isn’t set up carefully, this can cause what’s known as **clustering**, meaning that keys will be clumped together instead of distributed evenly. This is a problem, because indices are more likely to have to iterate through the cluster to reach an open space as opposed to coming across open spaces scattered neatly throughout the table.
+
+<br>
+
+![Linear Probing](./assets/8-linear-probing.png)
 
 ## Quadratic Probing
 
@@ -84,17 +77,17 @@ The other method for resolving collisions is closed addressing, more commonly re
 
 If we bring it back to coding, each slot in the hash table is built as a **bucket** that can hold as many keys as you want. So, if the hash function generates the same index for two keys, we don’t need to probe around to find an empty slot for them — we just add them to the bucket! Oftentimes, these buckets are implemented as a linked list: a simple data structure that preserves the simplicity of chaining. If we were to restructure our hash table of names with chaining, it might look like this:
 
-tktk Hunter - Can you diagram a hash table with chaining here?
+<br>
+
+![Chaining](./assets/10-chaining.png)
 
 ## Chaining: Pros and Cons
 
 Chaining is the more elegant and simple approach to a hash table implementation. (Ah, elegant code. We <3 you.) Let’s see why.
 
-| Pros | Cons |
-| --- | --- |
-| Much simpler insertion and deletion. | Extra data structuces require more memory and processing. |
-| You can always add more data. | Some slots in the table may never get used. |
-|   | A bad hash function might create very long chains, which decreases efficiency. |
+<br>
+
+![Chaining Pros and Cons](./assets/11-pros-cons-table.png)
 
 ## Chaining vs. Probing
 
@@ -106,11 +99,11 @@ Any hash table implementation must include three basic methods:
 
 The differences between chaining and probing become really clear when we look at how they each accomplish these methods. Everything is so short and clear for chaining!
 
-| Method | How It’s Done With Probing | How It’s Done With Chaining |
-|--------|-----------------------------|------------------------------|
-| search | Hash the key, see if it’s at that index, and probe until you find it or find an empty slot. | Hash the key, then search the data structure at that index for that key. |
-| insert | Hash the key, then put it at the index generated; if that index is taken, probe until you find one that’s available. | Hash the key, then store it in the data structure at that index. |
-| remove | Essentially a search followed by a deletion, but you must set an indicator that an element was deleted or a probe might stop there when it should keep jumping. | Hash a key, then delete the data from the data structure located at that index. |
+| Method   | How It’s Done With Probing                                                                                                                                        | How It’s Done With Chaining                                                       |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `search` | `Hash` the key, see if it’s at that index, and probe until you find it or find an empty slot.                                                                     | `Hash` the key, then search the data structure at that index for that key.        |
+| `insert` | `Hash` the key, then put it at the index generated; if that index is taken, probe until you find one that’s available.                                            | `Hash` the key, then store it in the data structure at that index.                |
+| `remove` | Essentially a `search` followed by a deletion, but you must set an indicator that an element was deleted or a probe might stop there when it should keep jumping. | `Hash` a key, then delete the data from the data structure located at that index. |
 
 ## Don’t Use This: A Direct Access Table
 
@@ -126,7 +119,9 @@ With all that’s been said about the efficiency and benefits of hash tables, le
 
 Another famous hash table you might know and love? A spell checker! As soon as a user presses the space bar, the word they type is passed through a hash function. If the function returns a key that’s in the hash table, it’s spelled correctly! If the key doesn’t exist in the table, it’s misspelled.
 
-tktk Hunter - Can you add a graphic of a mispelled word with the spell correct dropdown like it's explained above?
+<br>
+
+![Misspelled Word](./assets/14-spell-check.png)
 
 ## Let’s Talk About Interviews
 
@@ -137,3 +132,7 @@ Here are some other resources to review:
 - A visualization tool for [closed hashing](https://www.cs.usfca.edu/~galles/visualization/ClosedHashBucket.html) using buckets.
 - A visualization tool for [open addressing hash tables](https://www.cs.usfca.edu/~galles/visualization/ClosedHash.html).
 - Twenty [hashing-related questions](https://www.geeksforgeeks.org/top-20-hashing-technique-based-interview-questions/).
+
+<br>
+
+![Brain](./assets/interviews.png)

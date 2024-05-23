@@ -1,6 +1,4 @@
-# ![Computer Science - Hash Tables - tktk Microlesson Name](./assets/hero.png)
-
-**Learning objective:** By the end of this lesson, students will be able to tktk.
+# ![Computer Science - Hash Tables - Introduction to Hash Tables](./assets/hero.png)
 
 Take a journey with us to the very quaint (and very fictional town) of Memoryville. We’ll learn about how hash tables, an important and complex data structure, solved a crisis of space and usage for the small town — and could do the same in computer science.
 
@@ -10,17 +8,29 @@ Many years ago, in the small but high-tech town of Memoryville, a serious proble
 
 So, the city created a co-op called Key-Value Properties and conscripted several local computer scientists to be on its board. These board members were promised ample funding if they could speed up the house-hunting process for current and future Memoryville residents.
 
+<br>
+
+![Memoryville Shop](./assets/key-value-properties.png)
+
 ## Their Goal: Find Addresses, Stat
 
 Key-Value Properties was given the best land in the city: right downtown on the east side of Perfect Avenue, across the street from a park. It built 11 state-of-the-art cottages with sustainable micro-farms in their backyards. It was the pride of Memoryville!
 
 Because they were all computer scientists, the Key-Value board members naturally decided that the addresses would start with `0`. And, because there’s a park on the other side of the street, it used both even and odd addresses from `0` to `10`, even though the houses were all in a row. (The board didn’t ask the post office about any of this.)
 
+<br>
+
+![Memoryville Town](./assets/memoryville-before.png)
+
 ## Everybody Gets a House!
 
 Residences were available on a first-come, first-served basis and were open to all. However, because of the strict requirement that house searching happen quickly, residents were not allowed to choose a specific cottage — they had to agree to leave that to the co-op board.
 
 As the Key-Value Properties board was made up entirely of computer scientists, it had a strange way of determining where to place residents. It used a function, called `hashSimple()`, that took the name of the resident as an argument and returned a number between `0` and `10`. That was the address assigned to each new resident. The board designed the function to be simple so that the process of finding homes for new residents could be as quick and painless as possible.
+
+<br>
+
+![Funnel of Residents](./assets/hashSimple.png)
 
 ## The Function
 
@@ -30,7 +40,14 @@ Then, it adds the values for each character in the name together. And, because i
 
 ## And We Shall Call It: Hash
 
-Because that function took something recognizable, chopped it up, and scrambled the pieces to produce an output that was wonderful (but not necessarily recognizable as the input), the board called it a **hash function**. Yes, kind of like when you take a potato and chop it up to make a hash brown. Delicious? Yes. Related to the original? Only partially.
+Because that function took something recognizable, chopped it up, and scrambled the pieces to produce an output that was wonderful (but not necessarily recognizable as the input), the board called it a **hash function**. Yes, kind of like when you take a potato and chop it up to make a hash brown. 
+
+<br>
+
+![Hashbrowns](./assets/hashbrowns.png)
+
+
+Delicious? Yes. Related to the original? Only partially.
 
 ## Hashing It Out
 
@@ -84,10 +101,19 @@ As you can see, it was indeed too good to be true. It worked out OK for Andrew �
 
 Without thinking, a board member accidentally told Julie and Nora what their addresses would be. They were so excited to move in that they rushed across town at dangerous speeds, whipped their cars into what they thought would be their new driveways, and crashed into Ellen and Mary’s cars. Whoops!
 
+<br>
+
+![Car Crash](./assets/car-crash.png)
+
 ## Collisions
+
 News of this spread quickly throughout the town and, from then on, everyone jokingly referred to two people coming up with the same address as **collisions**.
 
 This was extremely embarrassing for Memoryville, so the town council told Key-Value Properties that future developments would not get any funding unless the board came up with a way to resolve these collisions.
+
+<br>
+
+![Collisions](./assets/collisions.png)
 
 ## The Second Development on Linear Lane
 
@@ -117,6 +143,10 @@ hash("Wesley") == (23 + 5 + 19 + 12 + 5 + 25) % 11 == 89 % 11 == 1
 
 Happily, there weren’t any collisions for the first two-thirds of the residents.
 
+<br>
+
+![Linear Lane](./assets/new-residents.png)
+
 ## Introducing: Linear Hash
 
 Next up was Beverly:
@@ -129,6 +159,10 @@ hash("Beverly") == (2 + 5 + 22 + 5 + 18 + 12 + 25) % 11 == 89 % 11 == 1
 Well, `1` was taken by Wesley, so the board’s new and improved `linearHash()` function started with that and checked each succeeding location address until it found an empty one at `5`.
 
 This wasn’t quite as fast as when the first several people got their houses, but after five attempts the board did find Beverly a house and, on average, was still doing pretty well.
+
+<br>
+
+![Linear Hash](./assets/linear-hash.png)
 
 ## The Rest of Linear Lane
 
@@ -175,6 +209,10 @@ The board members kept complaining that, once the houses reached about two-third
 
 The city council was a little annoyed by this request. It didn’t love the idea of building houses that would remain unoccupied, and it wanted put a library on the empty land.
 
+<br>
+
+![Houses full and Empty](./assets/houses-full-and-empty.png)
+
 ## Civic Drama
 
 One city council member quipped, “Why don’t we just build a house for everyone who could ever possibly want to live here?!”
@@ -185,11 +223,19 @@ The council got serious and, instead of agreeing to build extra houses that woul
 
 Key-Value Properties had successfully secured funding for a third development: Chaining Court.
 
+<br>
+
+![Key Value Money](./assets/key-value-money.png)
+
 ## The Chaining Court Apartments
 
 With this third development on the east side of the park, Key-Value Properties tried a new approach: Instead of single-family homes, it used fancy modular loft apartment buildings that allowed for the easy addition of extra stories.
 
 These lofts attracted a bunch of artists: Johann Sebastian, Wolfgang, Ludwig, Antonio, Frederic, Maurice, Arvo, Hildegard, Clara, Pyotr, and Igor.
+
+<br>
+
+![The Lofts](./assets/the-lofts.png)
 
 ## Chaining Court Residents
 
@@ -229,6 +275,10 @@ Because each new floor could be added on like a link in a chain, the co-op board
 ## The Moral of the Story
 
 The residents of Memoryville lived happily ever after, pleased with their fast new hashing system. The housing crisis was solved, and people flocked back to town in droves.
+
+<br>
+
+![Memoryville](./assets/memoryville.png)
 
 To this day, these methods are used for solving problems in computer science, where it’s particularly important that an address in memory or index in **an array be calculated quickly**.
 
