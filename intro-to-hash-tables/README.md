@@ -40,7 +40,7 @@ Then, it adds the values for each character in the name together. And, because i
 
 ## And We Shall Call It: Hash
 
-Because that function took something recognizable, chopped it up, and scrambled the pieces to produce an output that was wonderful (but not necessarily recognizable as the input), the board called it a **hash function**. Yes, kind of like when you take a potato and chop it up to make a hash brown. 
+Because that function took something recognizable, chopped it up, and scrambled the pieces to produce an output that was wonderful (but not necessarily recognizable as the input), the board called it a **hash function**. Yes, kind of like when you take a potato and chop it up to make a hash brown.
 
 <br>
 
@@ -217,7 +217,7 @@ The city council was a little annoyed by this request. It didn’t love the idea
 
 One city council member quipped, “Why don’t we just build a house for everyone who could ever possibly want to live here?!”
 
-Their sarcasm was lost on some of the less-experienced (and less-jaded) computer scientists. “Wow, yeah!” they replied. “Then everyone would always be guaranteed **direct access**!”
+Their sarcasm was lost on some of the less-experienced (and less-jaded) computer scientists. “Wow, yeah!” they replied. “Then everyone would always be guaranteed **direct access!**”
 
 The council got serious and, instead of agreeing to build extra houses that would only sit vacant, told the co-op board to go back to the drawing board.
 
@@ -280,8 +280,61 @@ The residents of Memoryville lived happily ever after, pleased with their fast n
 
 ![Memoryville](./assets/memoryville.png)
 
-To this day, these methods are used for solving problems in computer science, where it’s particularly important that an address in memory or index in **an array be calculated quickly**.
+To this day, these methods are used for solving problems in computer science, where it’s particularly important that **an address in memory or index in an array be calculated quickly**.
 
 ## Wrapping Up
 
 There was a lot going on in Memoryville, when it came to hash tables and hash functions! Let’s see how we can synthesize what we’ve learned.
+
+### Knowledge Check
+
+How would you define a hash function?
+
+<br>
+<details>
+<summary>
+Click for answer
+</summary>
+<br>
+Our Answer
+
+A hash function takes in a key, such as a string or integer, for a data record (often a key-value pair) and returns an integer memory address, or an index in a table where that record can be stored. In other words, it maps some key from the very large universe of possible keys to a much smaller range of possible indices in a hash table.
+</details>
+<br>
+
+
+### Knowledge Check
+
+What is a collision?
+
+<br>
+<details>
+<summary>
+Click for answer
+</summary>
+<br>
+Our Answer
+
+When a hash function returns the same value for two different keys.
+
+Remember in our example when two residents were assigned the same address? It resulted in a collision of those values, and they had nowhere to go until the collision was resolved.
+</details>
+<br>
+
+### Knowledge Check
+
+What purpose does linear probing serve?
+
+<br>
+<details>
+<summary>
+Click for answer
+</summary>
+<br>
+Our Answer
+
+Resolving collisions by moving one index to the right until an open index is found in which to store the key.
+
+When a collision occurs, we can find a new index using linear probing. It’s the process of moving through a hash table until an open index is found.
+</details>
+<br>
