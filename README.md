@@ -26,7 +26,7 @@ There are three components to this module:
 
 1. Lesson: [Introduction to Hash Tables](./intro-to-hash-tables/README.md)
 2. Lesson: [Hash Tables Deep Dive](./hash-tables-deep-dive/README.md)
-3. Exercise: [Implementing a Hash Table](https://git.generalassemb.ly/modular-curriculum-all-courses/hash-tables-starter-code)
+3. Exercise: [Implementing a Hash Table](https://github.com/ga-curriculum/hash-tables-starter-code)
 
 ## Solution Code 
 
